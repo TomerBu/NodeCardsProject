@@ -1,6 +1,5 @@
 import { Schema } from "mongoose";
 
-
 //תיאור של המסמכים שנרצה לשמור
 const cardsSchema = new Schema({
   name: String,

@@ -6,6 +6,7 @@ import logger from "./middleware/logger.js";
 import { notFound } from "./middleware/not-found.js";
 import { booksRouter } from "./routes/books.js";
 import { cardsRouter } from "./routes/cards.js";
+import { studentsRouter } from "./routes/students.js";
 
 const app = express();
 
@@ -21,6 +22,7 @@ connect().catch((e) => {
 //routes:
 app.use("/api/books", booksRouter);
 app.use("/api/cards", cardsRouter);
+app.use("/api/students", studentsRouter);
 
 //404:
 app.use(notFound);

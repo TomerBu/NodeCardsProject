@@ -27,3 +27,17 @@ Content-Type: application/json
 
 ### GET all cards
 GET http://localhost:3001/api/cards
+
+
+### GET all students:
+GET http://localhost:3001/api/students
+
+###POST to add a student:
+POST http://localhost:3001/api/students
+Content-Type: application/json
+
+{
+    "firstName":"Bruce", 
+    "lastName":"Wayne",
+    "email":"Batman@Batcave.com"
+}
