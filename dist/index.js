@@ -1,3 +1,4 @@
+import cors from "cors";
 import express from "express";
 import morgan from "morgan";
 import { connect } from "./db/connect.js";
@@ -7,6 +8,7 @@ import { cardsRouter } from "./routes/cards.js";
 import { studentsRouter } from "./routes/students.js";
 const app = express();
 //middlewares:
+app.use(cors({ origin: 'http://localhost:3000' }));
 app.use(express.json());
 app.use(morgan("dev"));
 connect().catch((e) => {
