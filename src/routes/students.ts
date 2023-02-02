@@ -5,11 +5,20 @@ const router = Router();
 // request handlers:
 
 //GET all students:
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   //TODO: handle errors:
-  Student.find().then((r) => {
-    res.json(r);
-  });
+  try {
+    const students = await Student.find();
+    res.json(students);
+  } catch (e) {
+    res.status(500).json({ message: "Error", error: e });
+  }
+});
+
+router.get("/abc", (req, res) => {
+  Student.find()
+    .then((students) => res.json(students))
+    .catch((e) => res.status(500).json({ message: "Error", error: e }));
 });
 
 //POST a student:
@@ -19,10 +28,12 @@ router.post("/", async (req, res) => {
     lastName: req.body.lastName,
     email: req.body.email,
   });
-
-  const result = await newStudent.save();
-
-  res.json({ message: "Student Saved", id: result.id });
+  try {
+    const result = await newStudent.save();
+    res.json({ message: "Student Saved", id: result.id });
+  } catch (e) {
+    res.status(500).json({ message: "Error", error: e });
+  }
 });
 
 export { router as studentsRouter };
