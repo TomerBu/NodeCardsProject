@@ -52,3 +52,13 @@ Content-Type: application/json
     "email":"Batman@Batcave.com",
     "password":"tomerBu@123!g"
 }
+
+
+###POST to sign in user:
+POST http://localhost:3001/api/auth/signin
+Content-Type: application/json
+
+{
+    "email":"Batman@Batcave.com",
+    "password":"tomerBu@123!g"
+}
