@@ -9,7 +9,15 @@ GET http://localhost:3001/api/login
 
 
 ###
+GET http://localhost:3001/api/books/all
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTI0ZThiY2M4MmU5YjRiOWQ4ODhhOSIsImlhdCI6MTY3NTc3NTcyOCwiZXhwIjoxNjc4MzY3NzI4fQ.QLMLLY1_upVsULKO6FYnVCnHWqlNElKzPfxtU88j5x0
+###
 GET http://localhost:3001/api/books/fantasy
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTI0ZThiY2M4MmU5YjRiOWQ4ODhhOSIsImlhdCI6MTY3NTc3NTcyOCwiZXhwIjoxNjc4MzY3NzI4fQ.QLMLLY1_upVsULKO6FYnVCnHWqlNElKzPfxtU88j5x0
+
+###
+GET http://localhost:3001/api/books/mod
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZTI0ZThiY2M4MmU5YjRiOWQ4ODhhOSIsImlhdCI6MTY3NTc3NTcyOCwiZXhwIjoxNjc4MzY3NzI4fQ.QLMLLY1_upVsULKO6FYnVCnHWqlNElKzPfxtU88j5x0
 
 
 ### POST to add a card:
@@ -48,8 +56,8 @@ POST http://localhost:3001/api/auth/signup
 Content-Type: application/json
 
 {
-    "username":"TomerBu", 
-    "email":"Tomerbu@gmail.com",
+    "username":"Batman", 
+    "email":"Batman@gmail.com",
     "password":"123456aA!"
 }
 
@@ -59,6 +67,6 @@ POST http://localhost:3001/api/auth/signin
 Content-Type: application/json
 
 {
-    "email":"Tomerbu@gmail.com",
+    "email":"Batman@gmail.com",
     "password":"123456aA!"
 }

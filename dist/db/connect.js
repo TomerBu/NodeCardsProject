@@ -19,6 +19,7 @@ const connect = () => __awaiter(void 0, void 0, void 0, function* () {
     initDB();
 });
 const initDB = () => {
+    //save without joi
     //create the User/Admin/Mod roles
     //if Role collection is Empty:
     Role.estimatedDocumentCount((err, count) => {
