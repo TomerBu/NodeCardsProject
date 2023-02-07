@@ -6,18 +6,22 @@ import { userAlreadyExists } from "../middleware/userAlreadyExists.js";
 
 import bcrypt from "bcryptjs";
 import { validateSignIn } from "../middleware/verifySignInBody.js";
+import { Role } from "../db/models/role.js";
 const router = Router();
 
 //api/auth/signup
 router.post("/signup", validateSignUp, userAlreadyExists, async (req, res) => {
   const body = _.pick(req.body, "username", "email", "password");
 
-  //12 rounds takes more
   body.password = await bcrypt.hash(body.password, 12);
-  //save the password hash to db:
+  const user = new User(body);
+  
+  //before saving the user:
 
   try {
-    const user = await new User(body).save();
+    //for each user -> save the role id of user
+    user.roles = [await (await Role.findOne({name: 'user'}))._id]
+    await user.save();
     return res.json({ message: "user saved", id: user._id });
   } catch (e) {
     return res.status(500).json({ message: "Server DB Error", error: e });
